@@ -75,3 +75,4 @@ if __name__ == "__main__":
 
         if not facility_records:
             print("No records were loaded.")
+        print("\nWrite by YanRong Cen\n")# Display your name
