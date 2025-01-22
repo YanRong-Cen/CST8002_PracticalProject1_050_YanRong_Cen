@@ -69,10 +69,9 @@ if __name__ == "__main__":
 	# Read the CSV and initialize records
         facility_records = read_csv_file(FILE_PATH)
 
-	# Output records to the screen
+	# Loop Output records to the screenl
         for record in facility_records:
             print(record)
 
         if not facility_records:
             print("No records were loaded.")
-        print("\nWrite by YanRong Cen\n")# Display your name
