@@ -74,4 +74,4 @@ if __name__ == "__main__":
 
         if not facility_records:
             print("No records were loaded.")
-print("\nProgram by: Your Full Name")
+    

@@ -38,14 +38,14 @@ class FacilityRecord:
         self.operator_id = operator_id
         self.designated_facility = designated_facility
 
-def __str__(self):
-    """
+    def __str__(self):
+        """
     Returns a string representation of the facility record.
 
     Returns:
         str: A formatted string containing all details of the facility record.
     """
-    return (f"Region: {self.region}, District: {self.district}, License #: {self.license_number}, "
+        return (f"Region: {self.region}, District: {self.district}, License #: {self.license_number}, "
             f"Facility Name: {self.facility_name}, Type: {self.facility_type}, "
             f"Address: {self.facility_address_1}, {self.facility_address_2}, {self.facility_address_3}, "
             f"Max Children: {self.max_children}, Infants: {self.max_infants}, Preschool: {self.max_preschool}, "
