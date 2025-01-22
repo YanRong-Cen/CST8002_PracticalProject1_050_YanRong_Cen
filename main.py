@@ -57,4 +57,20 @@ def read_csv_file(file_path, num_records=5):
         print(f"An error occurred: {e}")
 
     return records
+if __name__ == "__main__":
+    FILE_PATH = r"E:\level_4\Programming Language\Licensed_Early_Learning_and_Childcare_Facilities.csv" # Replace with the actual path of your CSV file
 
+    if not os.path.exists(FILE_PATH):
+        print(f"Error: The file '{FILE_PATH}' does not exist.")
+    else:
+        print("\nProgram by: YanRong Cen\n")# Display your name
+	
+	# Read the CSV and initialize records
+        facility_records = read_csv_file(FILE_PATH)
+
+	# Output records to the screen
+        for record in facility_records:
+            print(record)
+
+        if not facility_records:
+            print("No records were loaded.")
