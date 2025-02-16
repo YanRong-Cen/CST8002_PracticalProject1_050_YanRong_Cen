@@ -1,9 +1,23 @@
+"""
+Course: CST8002 - Programming Language
+Professor: Todd Keuleman
+Due Date: 2025-02-16
+Author: YanRong Cen
+
+Description:
+
+This module handles the user interface for the facility management system.
+It provides functions to display menus, get user input, and manage facility records.
+"""
 import os
 import uuid
 from business import FacilityManager
 from FacilityRecord import FacilityRecord
 
 def display_menu():
+    """
+    Display the main menu options.
+    """
     """Display the main menu options."""
     print("\nMenu:")
     print("1. Display all records")
@@ -68,8 +82,17 @@ def main():
 
 
 if __name__ == "__main__":
+    """
+    Main function to run the facility management program.
+    """
     main() 
 def get_record_input():
+    """
+    Get facility record details from user input with validation.
+
+    Returns:
+        FacilityRecord: A FacilityRecord object populated with user input.
+    """
     """Get facility record details from user input with validation."""
     while True:
         try:

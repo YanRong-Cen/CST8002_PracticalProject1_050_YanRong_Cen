@@ -1,9 +1,35 @@
+"""
+Course: CST8002 - Programming Language
+Professor: Todd Keuleman
+Due Date: 2025-02-16
+Author: YanRong Cen
+
+Description:
+This module handles the loading and saving of facility records to and from a CSV file.
+"""
 import csv
 from FacilityRecord import FacilityRecord
 
 class Persistence:
+    """
+    A class to handle the persistence of facility records.
+
+    Methods:
+        load_records(file_path, num_records): Load records from a CSV file.
+        save_records(file_path, records): Save records to a CSV file.
+    """
     @staticmethod
     def load_records(file_path, num_records=100):
+        """
+        Load records from a CSV file.
+
+        Args:
+            file_path (str): The path to the CSV file.
+            num_records (int): The maximum number of records to load (default is 100).
+
+        Returns:
+            list: A list of FacilityRecord objects.
+        """
         """Load records from a CSV file."""
         records = []
         try:
@@ -39,6 +65,13 @@ class Persistence:
         return records
     @staticmethod
     def save_records(file_path, records):
+        """
+        Save records to a CSV file.
+
+        Args:
+            file_path (str): The path to the CSV file where records will be saved.
+            records (list): A list of FacilityRecord objects to save.
+        """
         """Save records to a CSV file."""
         try:
             with open(file_path, 'w', newline='', encoding='utf-8') as file:
