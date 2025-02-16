@@ -1,6 +1,7 @@
 import unittest
-from business import FacilityManager
-from FacilityRecord import FacilityRecord
+
+from model.FacilityRecord import FacilityRecord
+from business.business import FacilityManager
 from presentation import main
 FILE_PATH = r"E:\level_4\Programming Language\Licensed_Early_Learning_and_Childcare_Facilities.csv"
 class TestFacilityManager(unittest.TestCase):

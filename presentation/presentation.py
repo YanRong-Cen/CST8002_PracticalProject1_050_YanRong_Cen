@@ -11,8 +11,8 @@ It provides functions to display menus, get user input, and manage facility reco
 """
 import os
 import uuid
-from business import FacilityManager
-from FacilityRecord import FacilityRecord
+from business.business import FacilityManager
+from model.FacilityRecord import FacilityRecord
 
 def display_menu():
     """

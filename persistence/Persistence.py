@@ -8,7 +8,7 @@ Description:
 This module handles the loading and saving of facility records to and from a CSV file.
 """
 import csv
-from FacilityRecord import FacilityRecord
+from model.FacilityRecord import FacilityRecord
 
 class Persistence:
     """

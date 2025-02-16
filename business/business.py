@@ -8,7 +8,8 @@ Description:
 This module contains the FacilityManager class, which manages facility records.
 It provides methods to load, save, display, add, and delete records.
 """
-from Persistence import Persistence
+from persistence.Persistence import Persistence
+from model.FacilityRecord import FacilityRecord 
 class FacilityManager:
     """
     A class to manage facility records.
