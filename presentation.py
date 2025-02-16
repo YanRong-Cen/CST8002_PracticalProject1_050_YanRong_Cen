@@ -24,5 +24,16 @@ def main():
 
     print("\nProgram by: YanRong Cen\n")  # Display my name
     facility_manager.load_records(FILE_PATH)
+    
+    while True:
+        display_menu()
+        choice = input("Select an option (1-8): ")
+
+
+        if choice == '6':
+            facility_manager.load_records(FILE_PATH)
+            print("Records reloaded successfully.")
+
+
 if __name__ == "__main__":
     main() 
