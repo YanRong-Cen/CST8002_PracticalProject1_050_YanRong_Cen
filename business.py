@@ -27,4 +27,7 @@ class FacilityManager:
             print(self.records[index])
         else:
             print("Error: Index out of range.")
+    def add_record(self, record):
+        """Add a new record to the list."""
+        self.records.append(record)
 

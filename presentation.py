@@ -35,6 +35,10 @@ def main():
         elif choice == '2':
             index = int(input("Enter the index of the record to display: "))
             facility_manager.select_record(index)
+        elif choice == '3':
+            new_record = get_record_input()
+            facility_manager.add_record(new_record)
+            print("Record added successfully.")
         elif choice == '6':
             facility_manager.load_records(FILE_PATH)
             print("Records reloaded successfully.")
@@ -48,3 +52,29 @@ def main():
 
 if __name__ == "__main__":
     main() 
+def get_record_input():
+    """Get facility record details from user input with validation."""
+    while True:
+        try:
+            region = input("Enter region: ")
+            district = input("Enter district: ")
+            license_number = input("Enter license number: ")
+            facility_name = input("Enter facility name: ")
+            facility_type = input("Enter facility type: ")
+            facility_address_1 = input("Enter address line 1: ")
+            facility_address_2 = input("Enter address line 2: ")
+            facility_address_3 = input("Enter address line 3: ")
+            max_children = int(input("Enter max children: "))
+            max_infants = int(input("Enter max infants: "))
+            max_preschool = int(input("Enter max preschool: "))
+            max_school_age = int(input("Enter max school age: "))
+            language_of_service = input("Enter language of service: ")
+            operator_id = input("Enter operator ID: ")
+            designated_facility = input("Enter designated facility: ")
+
+            return FacilityRecord(region, district, license_number, facility_name, facility_type,
+                                  facility_address_1, facility_address_2, facility_address_3,
+                                  max_children, max_infants, max_preschool, max_school_age,
+                                  language_of_service, operator_id, designated_facility)
+        except ValueError:
+            print("Invalid input. Please enter numeric values for max children, infants, preschool, and school age.")
