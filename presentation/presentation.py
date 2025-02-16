@@ -72,7 +72,7 @@ def main():
             print("Records reloaded successfully.")
         elif choice == '7':
             output_file_path = f"output_{uuid.uuid4()}.csv"
-            facility_manager.g(output_file_path)
+            facility_manager.save_records(output_file_path)
             print(f"Records saved to {output_file_path}")
         elif choice == '8':
             print("Exiting the program.")
