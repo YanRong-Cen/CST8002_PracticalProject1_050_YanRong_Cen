@@ -37,3 +37,27 @@ class Persistence:
             print(f"An error occurred: {e}")
         
         return records
+    @staticmethod
+    def save_records(file_path, records):
+        """Save records to a CSV file."""
+        try:
+            with open(file_path, 'w', newline='', encoding='utf-8') as file:
+                writer = csv.writer(file)
+                # Write header
+                writer.writerow(['Region', 'District', 'License Number', 'Facility Name', 
+                                 'Facility Type', 'Address 1', 'Address 2', 'Address 3', 
+                                 'Max Children', 'Max Infants', 'Max Preschool', 
+                                 'Max School Age', 'Language of Service', 'Operator ID', 
+                                 'Designated Facility'])
+                for record in records:
+                    writer.writerow([record.region, record.district, record.license_number,
+                                     record.facility_name, record.facility_type,
+                                     record.facility_address_1, record.facility_address_2,
+                                     record.facility_address_3, record.max_children,
+                                     record.max_infants, record.max_preschool,
+                                     record.max_school_age, record.language_of_service,
+                                     record.operator_id, record.designated_facility])
+        except Exception as e:
+            print(f"An error occurred while saving records: {e}") 
+
+            

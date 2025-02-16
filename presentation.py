@@ -1,4 +1,5 @@
 import os
+import uuid
 from business import FacilityManager
 from FacilityRecord import FacilityRecord
 
@@ -33,6 +34,12 @@ def main():
         if choice == '6':
             facility_manager.load_records(FILE_PATH)
             print("Records reloaded successfully.")
+        elif choice == '7':
+            output_file_path = f"output_{uuid.uuid4()}.csv"
+            facility_manager.save_records(output_file_path)
+            print(f"Records saved to {output_file_path}")
+        else:
+            print("Invalid option. Please try again.")
 
 
 if __name__ == "__main__":
