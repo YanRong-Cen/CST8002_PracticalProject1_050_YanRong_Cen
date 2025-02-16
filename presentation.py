@@ -39,6 +39,15 @@ def main():
             new_record = get_record_input()
             facility_manager.add_record(new_record)
             print("Record added successfully.")
+        elif choice == '4':
+            index = int(input("Enter the index of the record to edit: "))
+            if 0 <= index < len(facility_manager.records):
+                print("Editing record at index:", index)
+                updated_record = get_record_input()
+                facility_manager.records[index] = updated_record
+                print("Record updated successfully.")
+            else:
+                print("Error: Index out of range.")
         elif choice == '6':
             facility_manager.load_records(FILE_PATH)
             print("Records reloaded successfully.")
