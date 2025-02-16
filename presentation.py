@@ -30,13 +30,17 @@ def main():
         display_menu()
         choice = input("Select an option (1-8): ")
 
-
-        if choice == '6':
+        if choice == '1':
+            facility_manager.display_records_with_name(facility_manager.records)
+        elif choice == '2':
+            index = int(input("Enter the index of the record to display: "))
+            facility_manager.select_record(index)
+        elif choice == '6':
             facility_manager.load_records(FILE_PATH)
             print("Records reloaded successfully.")
         elif choice == '7':
             output_file_path = f"output_{uuid.uuid4()}.csv"
-            facility_manager.save_records(output_file_path)
+            facility_manager.g(output_file_path)
             print(f"Records saved to {output_file_path}")
         else:
             print("Invalid option. Please try again.")
