@@ -30,4 +30,10 @@ class FacilityManager:
     def add_record(self, record):
         """Add a new record to the list."""
         self.records.append(record)
+    def delete_record(self, index):
+        """Delete a record by index."""
+        if 0 <= index < len(self.records):
+            del self.records[index]
+        else:
+            print("Error: Index out of range.") 
 

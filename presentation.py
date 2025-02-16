@@ -48,6 +48,11 @@ def main():
                 print("Record updated successfully.")
             else:
                 print("Error: Index out of range.")
+        elif choice == '5':
+            index = int(input("Enter the index of the record to delete: "))
+            facility_manager.delete_record(index)
+            print("Record deleted successfully.")
+            
         elif choice == '6':
             facility_manager.load_records(FILE_PATH)
             print("Records reloaded successfully.")
@@ -55,6 +60,9 @@ def main():
             output_file_path = f"output_{uuid.uuid4()}.csv"
             facility_manager.g(output_file_path)
             print(f"Records saved to {output_file_path}")
+        elif choice == '8':
+            print("Exiting the program.")
+            break
         else:
             print("Invalid option. Please try again.")
 
