@@ -237,13 +237,14 @@ class FacilityManager:
             for record in records:
                 self.container.add(record)
 
-    def sort_records(self, field: str, algorithm: str = "quick"):
+    def sort_records(self, field: str, algorithm: str = "quick", callback=None):
         """
         异步对记录进行排序
         
         Args:
             field (str): 要排序的字段名称
             algorithm (str): 排序算法 ("quick", "merge", "builtin")
+            callback: Optional callback to be called when sorting is complete
         """
         if not self.wait_for_load(timeout=10):
             print("\nError: Unable to sort records - data loading timeout")
@@ -252,7 +253,10 @@ class FacilityManager:
         def sort_worker():
             try:
                 with self.records_lock:
-                    records = self.container.get_all()
+                    # Get all records from the container
+                    records = self.records.copy()
+                    
+                    # Sort the records using the specified algorithm
                     if algorithm == "quick":
                         sorted_records = SortingStrategy.quick_sort(records, field)
                     elif algorithm == "merge":
@@ -260,21 +264,24 @@ class FacilityManager:
                     else:
                         sorted_records = sorted(records, key=attrgetter(field))
                     
-                    # 更新容器中的记录
+                    # Update both the container and the records list
+                    self.records = sorted_records
                     self.container = FacilityContainer(self.container.container_type)
                     for record in sorted_records:
                         self.container.add(record)
                     
-                    # 触发异步保存
+                    # Trigger async save
                     self.save_queue.put("SAVE")
                     
                 print(f"\nRecords sorted by {field} using {algorithm} sort")
+                if callback:
+                    callback()
             except AttributeError as e:
                 print(f"\nError: Invalid field name '{field}' - {e}")
             except Exception as e:
                 print(f"\nError during sorting: {e}")
 
-        # 创建并启动排序线程
+        # Create and start sorting thread
         sort_thread = threading.Thread(target=sort_worker, name="SortThread")
         sort_thread.daemon = True
         sort_thread.start()
