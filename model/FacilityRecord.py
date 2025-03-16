@@ -1,7 +1,7 @@
 """
 Course: CST8002 - Programming Language
 Professor: Todd Keuleman
-Due Date: 2025-03-16
+Due Date: 2025-02-16
 Author: YanRong Cen
 
 Description:
@@ -12,6 +12,7 @@ methods, and classes.
 """
 
 from model.BaseRecord import BaseRecord
+
 class FacilityRecord:
     """
     Represents a record for a facility, containing details such as region, license number,
@@ -50,6 +51,7 @@ class FacilityRecord:
                 f"Max Children: {self.max_children}, Infants: {self.max_infants}, Preschool: {self.max_preschool}, "
                 f"School Age: {self.max_school_age}, Language: {self.language_of_service}, "
                 f"Operator ID: {self.operator_id}, Designated Facility: {self.designated_facility}")
+
 class StandardFacilityRecord(BaseRecord):
     """
     Standard implementation of a facility record with comma-separated formatting.
@@ -67,6 +69,7 @@ class StandardFacilityRecord(BaseRecord):
                 f"Max Children: {self.max_children}, Infants: {self.max_infants}, Preschool: {self.max_preschool}, "
                 f"School Age: {self.max_school_age}, Language: {self.language_of_service}, "
                 f"Operator ID: {self.operator_id}, Designated Facility: {self.designated_facility}")
+
 class CompactFacilityRecord(BaseRecord):
     """
     Compact implementation of a facility record with minimal formatting.
@@ -80,6 +83,7 @@ class CompactFacilityRecord(BaseRecord):
         """
         return (f"{self.facility_name} ({self.license_number}) - {self.facility_type} | "
                 f"Capacity: {self.max_children} | {self.region}")
+
 class DetailedFacilityRecord(BaseRecord):
     """
     Detailed implementation of a facility record with multi-line formatting.
