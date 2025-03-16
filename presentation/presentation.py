@@ -235,6 +235,9 @@ def main():
                 print(f"\nData structure changed to {structure_type}")
             else:
                 print("\nInvalid choice!")
+        elif choice == '11':
+            print("\nExiting program...")
+            break
 
 if __name__ == "__main__":
     main()

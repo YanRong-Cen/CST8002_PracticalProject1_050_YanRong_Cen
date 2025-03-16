@@ -9,4 +9,4 @@
 from presentation.presentation import main as start_application
 
 if __name__ == "__main__":
-       start_application()  # Call the main function to start the application
+       start_application()  # Call the main function to start the application1
